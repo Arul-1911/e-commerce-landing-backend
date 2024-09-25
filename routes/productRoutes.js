@@ -8,8 +8,9 @@ router.get("/", async (req, res) => {
   const { search, category } = req.body;
   let query = {};
 
+  // Handle search term
   if (search) {
-    query.title = { $regex: search, $options: "i" };
+    query.$or = [{ title: { $regex: search, $options: "i" } }];
   }
 
   if (category) {
