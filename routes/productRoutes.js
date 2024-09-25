@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
   if (search) {
     const trimmedSearch = search.trim();
     query.$or = [
-      { title: { $regex: new RegExp(trimmedSearch, "i") } }, // 'i' for case-insensitive
+      { title: { $regex: new RegExp(trimmedSearch, "i") } },
       { description: { $regex: new RegExp(trimmedSearch, "i") } },
     ];
   }
